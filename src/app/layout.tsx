@@ -21,7 +21,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col" style={{ backgroundColor: 'var(--color-bg)' }}>
+      <body className="h-full flex flex-col" style={{ backgroundColor: 'var(--color-bg)' }}>
         <Providers session={session}>
           <Navbar />
           <main className="flex-1 flex flex-col">{children}</main>

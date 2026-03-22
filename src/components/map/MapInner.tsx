@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react'
 import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet'
 import L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
 import { useStore } from '@/lib/store'
 import type { CollegeEntry } from '@/types'
 
@@ -44,6 +43,15 @@ function createPinIcon(status: CollegeEntry['status'], selected: boolean) {
     iconAnchor: [size / 2, size],
     tooltipAnchor: [size / 2, -size / 2],
   })
+}
+
+function InvalidateSizeOnMount() {
+  const map = useMap()
+  useEffect(() => {
+    const t = setTimeout(() => map.invalidateSize(), 100)
+    return () => clearTimeout(t)
+  }, [map])
+  return null
 }
 
 function FitBoundsControl({ colleges }: { colleges: CollegeEntry[] }) {
@@ -95,6 +103,7 @@ export default function MapInner() {
       zoomControl={true}
       className="z-0"
     >
+      <InvalidateSizeOnMount />
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
