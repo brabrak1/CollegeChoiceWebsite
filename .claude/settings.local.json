@@ -6,7 +6,12 @@
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d[''''version'''']\\)\")",
       "Bash(npx prisma:*)",
       "Bash(npm run:*)",
-      "Bash(node node_modules/next/dist/bin/next build)"
+      "Bash(node node_modules/next/dist/bin/next build)",
+      "Bash(ls -la .env*)",
+      "Bash(node -e \"require\\(''dotenv''\\).config\\({path:''/Users/Brady/Desktop/CollegeChoicewebsite/.env.local''}\\); console.log\\(''KEY:'', process.env.COLLEGE_SCORECARD_API_KEY\\)\")",
+      "Bash(/usr/local/bin/node -e \"require\\(''dotenv''\\).config\\({path:''.env.local''}\\); console.log\\(''KEY:'', JSON.stringify\\(process.env.COLLEGE_SCORECARD_API_KEY\\)\\)\")",
+      "Bash(find /Users/Brady/Desktop/CollegeChoicewebsite/node_modules/next/dist -name *.md)",
+      "Bash(/usr/local/bin/node -e \"const d=require\\(''''/dev/stdin''''\\); console.log\\(''''version:'''', d.version\\)\")"
     ]
   }
 }

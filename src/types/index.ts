@@ -34,6 +34,17 @@ export interface CollegeEntry {
   bracketSeed?: number
 }
 
+// Minimal shape returned by /api/search — used only to populate the dropdown
+// while the user types. Does NOT include coordinates or financial data.
+export interface SearchSuggestion {
+  scorecardId: string
+  name: string
+  city: string
+  state: string
+}
+
+// Full shape returned by /api/colleges/lookup — fetched only after the user
+// selects a specific school. Includes coordinates, tuition, enrollment.
 export interface ScorecardResult {
   scorecardId: string
   name: string
