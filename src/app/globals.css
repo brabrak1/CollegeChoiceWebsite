@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-nav: #2D2D2D;
+  --color-bg: #F5F5F5;
+  --color-card: #FFFFFF;
+  --color-accent: #4A8FA8;
+  --color-accent-hover: #3A7A91;
+  --color-text-primary: #1A1A1A;
+  --color-text-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --sidebar-width: 420px;
+  --navbar-height: 64px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-nav: var(--color-nav);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Custom pin styles */
+.college-pin {
+  width: 32px;
+  height: 32px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 2px solid rgba(255,255,255,0.8);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.college-pin.considering {
+  background-color: var(--color-accent);
+}
+
+.college-pin.favorite {
+  background-color: #F59E0B;
+}
+
+.college-pin.eliminated {
+  background-color: #9CA3AF;
+  opacity: 0.6;
+}
+
+/* Sidebar transition */
+.sidebar-enter {
+  transform: translateX(100%);
+}
+.sidebar-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-in-out;
 }
